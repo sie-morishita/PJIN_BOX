@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    Animator charaAnim;
+
     public bool isMove;
 
     void Start()
     {
-        
+        charaAnim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -17,5 +19,10 @@ public class PlayerScript : MonoBehaviour
         {
             transform.position += transform.forward * 0.03f;
         }
+    }
+
+    void Update()
+    {
+        charaAnim.SetBool("isRunning", isMove);
     }
 }
