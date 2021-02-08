@@ -70,6 +70,34 @@ public class StageControllerScript : MonoBehaviour
         retryCanvas.SetActive(true);
     }
 
+    // Nextボタンをクリックしたときの処理
+    public void OnNextButtonClick()
+    {
+        // ステージ数を加算
+        stageNum++;
+        PlayerPrefs.SetInt("StageNum", stageNum);
+
+        // 次に読み込むシーン
+        // 全ステージクリア後は、ランダムにする
+        if (stageNum > GAME_SCENE_COUNT)
+        {
+            int rnd = Random.Range(1, GAME_SCENE_COUNT + 1);
+            PlayerPrefs.SetInt("SceneNum", rnd);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("SceneNum", stageNum);
+        }
+
+        LoadScene();
+    }
+
+    // Retryボタンをクリックしたときの処理
+    public void OnRetryButtonClick()
+    {
+        LoadScene();
+    }
+
     // ロードするシーン名を取得
     private string GetLoadSceneName()
     {
