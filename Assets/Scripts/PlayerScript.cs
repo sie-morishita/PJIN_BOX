@@ -7,9 +7,11 @@ public class PlayerScript : MonoBehaviour
     Animator charaAnim;
 
     public bool isMove;
+    public bool isDamaged;
 
     void Start()
     {
+        isDamaged = false;
         charaAnim = GetComponent<Animator>();
     }
 
@@ -23,6 +25,24 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
+        if (StageControllerScript.isClear)
+        {
+            isMove = false;
+            enabled = false;
+
+            // 正面（画面手前を向く）
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+
+            charaAnim.SetTrigger("Clear");
+        }else if(isDamaged){
+            isMove = false;
+            enabled = false;
+ 
+            charaAnim.SetTrigger("Damaged");
+ 
+            StageControllerScript.isGameOver = true;
+        }
+
         charaAnim.SetBool("isRunning", isMove);
     }
 

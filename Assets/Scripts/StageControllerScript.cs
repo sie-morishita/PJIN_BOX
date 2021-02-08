@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class StageControllerScript : MonoBehaviour
 {
     public const string GAME_SCENE_NAME = "GameScene"; // シーン名のプレフィクス
-    public const int GAME_SCENE_COUNT = 1;             // シーンの数
+    public const int GAME_SCENE_COUNT = 2;             // シーンの数
 
     private int stageNum;　　　 // 現在のステージ数
     public Text stageName;      // 現在のステージ名（"Stage" + stageNum）
