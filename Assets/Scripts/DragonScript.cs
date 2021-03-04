@@ -6,10 +6,11 @@ public class DragonScript : MonoBehaviour
 {
     public GameObject Fire;
     public bool isDamaged;
+    Quaternion DefaultRot;
 
     void Start()
     {
-        
+        DefaultRot = transform.rotation;
     }
 
     void Update()
@@ -21,7 +22,7 @@ public class DragonScript : MonoBehaviour
     {
         if (other.isTrigger) return;
 
-        if(other.tag == "Player")
+        if(other.tag == "Player" && !StageControllerScript.isGameOver)
         {
             // ターゲット位置
             Vector3 targetPos = other.bounds.center;
@@ -35,6 +36,7 @@ public class DragonScript : MonoBehaviour
             {
                 if (!Fire.activeSelf)
                 {
+                    transform.LookAt(other.transform);
                     Fire.SetActive(true);
                     Invoke("DisableFire", 1.0f);
                 }
@@ -53,5 +55,6 @@ public class DragonScript : MonoBehaviour
     void DisableFire()
     {
         Fire.SetActive(false);
+        transform.rotation = DefaultRot;
     }
 }
