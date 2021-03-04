@@ -5,7 +5,7 @@ using UnityEngine;
 public class DragonScript : MonoBehaviour
 {
     public GameObject Fire;
-    bool isFire;
+    public bool isDamaged;
 
     void Start()
     {
@@ -14,7 +14,7 @@ public class DragonScript : MonoBehaviour
 
     void Update()
     {
-
+        if (isDamaged) Destroy(gameObject);
     }
 
     private void OnTriggerStay(Collider other)
@@ -39,6 +39,14 @@ public class DragonScript : MonoBehaviour
                     Invoke("DisableFire", 1.0f);
                 }
             }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerScript>().isDamaged = true;
         }
     }
 

@@ -10,5 +10,10 @@ public class TrapScript : MonoBehaviour
         {
             other.gameObject.GetComponent<PlayerScript>().isDamaged = true;
         }
+
+        if (other.gameObject.tag == "Dragon")
+        {
+            other.gameObject.GetComponent<DragonScript>().isDamaged = true;
+        }
     }
 }
