@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using ArionDigital;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,7 +29,14 @@ public class BoxScript : MonoBehaviour
                 break;
         }
 
-        Destroy(gameObject);
+        // 子オブジェクト（箱）を全て破壊
+        foreach (Transform unit in transform)
+        {
+            unit.gameObject.GetComponent<CrashCrate>().Crash();
+        }
+
+        // 破片が残るので消滅させる
+        Destroy(gameObject, 1.0f);
     }
 
     // 初期配置で右に移動させる場合に使う

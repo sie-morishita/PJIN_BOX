@@ -12,7 +12,17 @@
         [Header("Audio")]
         public AudioSource crashAudioClip;
 
-        private void OnTriggerEnter(Collider other)
+        // コメントアウト
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //    wholeCrate.enabled = false;
+        //    boxCollider.enabled = false;
+        //    fracturedCrate.SetActive(true);
+        //    crashAudioClip.Play();
+        //}
+
+        // このメソッドを追加
+        public void Crash()
         {
             wholeCrate.enabled = false;
             boxCollider.enabled = false;
