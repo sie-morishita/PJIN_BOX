@@ -2502,6 +2502,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box_Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 6183057439762576048, guid: 3bce0fe1316c61647b913e3370b6c080,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183057439762576048, guid: 3bce0fe1316c61647b913e3370b6c080,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bce0fe1316c61647b913e3370b6c080, type: 3}
 --- !u!1001 &6188815097249879026
@@ -2639,6 +2649,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 3814417541249287052, guid: 88287d952d604c145966f7cd88eb6fd7,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88287d952d604c145966f7cd88eb6fd7, type: 3}
