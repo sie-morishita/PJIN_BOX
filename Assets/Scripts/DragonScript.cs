@@ -7,10 +7,12 @@ public class DragonScript : MonoBehaviour
     public GameObject Fire;
     public bool isDamaged;
     Quaternion DefaultRot;
+    Animator anim;
 
     void Start()
     {
         DefaultRot = transform.rotation;
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -39,6 +41,8 @@ public class DragonScript : MonoBehaviour
                     transform.LookAt(other.transform);
                     Fire.SetActive(true);
                     Invoke("DisableFire", 1.0f);
+
+                    anim.SetTrigger("AttackTrigger");
                 }
             }
         }
